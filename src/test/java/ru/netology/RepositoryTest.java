@@ -8,12 +8,11 @@ public class RepositoryTest {
 
     private Repository repo = new Repository();
 
-    private Product book = new Book(1, "Idiot", 500, "Dostoevsky");
-    private Product book1 = new Book(2, "Master & Margarita", 600, "Bulgakov");
+    private Book book = new Book(1, "Idiot", 500, "Dostoevsky");
+    private Book book1 = new Book(2, "Master & Margarita", 600, "Bulgakov");
 
-    private Product tel = new Smartphone(4, "N100", 5000, "Nokia");
-    private Product tel1 = new Smartphone(5, "Galaxy", 13000, "Samsung");
-
+    private Smartphone tel = new Smartphone(4, "N100", 5000, "Nokia");
+    private Smartphone tel1 = new Smartphone(5, "Galaxy", 13000, "Samsung");
 
     @BeforeEach
     public void setUp() {

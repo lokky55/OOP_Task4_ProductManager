@@ -2,9 +2,9 @@ package ru.netology;
 
 public class ProductManager {
 
-    private Repository repository;
+    private Repository repository; // создаем поле типа Repository, которым будем управлять
 
-    public ProductManager(Repository repository) {
+    public ProductManager(Repository repository) {  // аргументом(экземпляр) будем использовать класс Repository
         this.repository = repository;
     }
 
@@ -27,10 +27,10 @@ public class ProductManager {
         // return product.getName().contains(search);
     }
 
-    // метод поиска товаров по запросу
+    // метод поиска товаров по запросу text
     public Product[] searchBy(String text) {
-        Product[] result = new Product[0];   // тут будем хранить подошедшие запросу продукты
-        for (Product product : repository.findAll()) {
+        Product[] result = new Product[0];   // тут будем хранить подошедшие запросу продукты  0 - кол-во элементов
+        for (Product product : repository.findAll()) {   // findAll() получение всех элементов, которые будем перебирать
             if (matches(product, text)) {
                 Product[] tmp = new Product[result.length + 1];
                 System.arraycopy(result, 0, tmp, 0, result.length);

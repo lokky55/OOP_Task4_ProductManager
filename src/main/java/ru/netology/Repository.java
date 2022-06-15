@@ -2,9 +2,9 @@ package ru.netology;
 
 public class Repository {
 
-    private Product[] products = new Product[0];
+    private Product[] products = new Product[0];  // "приватное поле products типа(класса) Product = новый обьект с кол-во элементов массива 0"
 
-    public void save(Product product) {
+    public void save(Product product) {  // метод сохранения (добавления) продукта
         Product[] tmp = new Product[products.length + 1];
         System.arraycopy(products, 0, tmp, 0, products.length);
         tmp[tmp.length - 1] = product;
@@ -23,13 +23,13 @@ public class Repository {
 
     public Product[] findAll() {
         return products;
-    }
+    }  // Product[] - тип возвращаемого результата
 
-    public void removeById(int id) {
+    public void removeById(int id) {      // метод удаления по id
         Product[] tmp = new Product[products.length - 1];
         int index = 0;
-        for (Product product : products) {
-            if (product.getId() != id) {
+        for (Product product : products) {    // используем for each
+            if (product.getId() != id) {      // стандартный геттер поля id
                 tmp[index] = product;
                 index++;
             }
