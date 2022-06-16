@@ -8,5 +8,4 @@ public class Book extends Product {
         super(id, name, cost);
         this.bookAuthor = bookAuthor;
     }
-
 }

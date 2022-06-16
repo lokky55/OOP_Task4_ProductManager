@@ -27,6 +27,7 @@ public class ProductManager {
         // return product.getName().contains(search);
     }
 
+
     // метод поиска товаров по запросу text
     public Product[] searchBy(String text) {
         Product[] result = new Product[0];   // тут будем хранить подошедшие запросу продукты  0 - кол-во элементов
