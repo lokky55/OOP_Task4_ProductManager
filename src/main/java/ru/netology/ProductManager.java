@@ -9,7 +9,7 @@ public class ProductManager {
     }
 
     public void add(Product product) {
-        repository.save(product);
+        repository.add(product);
     }
 
     public void removeById(int id) {
@@ -27,10 +27,9 @@ public class ProductManager {
         // return product.getName().contains(search);
     }
 
-
     // метод поиска товаров по запросу text
     public Product[] searchBy(String text) {
-        Product[] result = new Product[0];   // тут будем хранить подошедшие запросу продукты  0 - кол-во элементов
+        Product[] result = new Product[0];         // тут будем хранить подошедшие запросу продукты 0 - кол-во элементов
         for (Product product : repository.findAll()) {   // findAll() получение всех элементов, которые будем перебирать
             if (matches(product, text)) {
                 Product[] tmp = new Product[result.length + 1];
@@ -41,6 +40,20 @@ public class ProductManager {
         }
         return result;
     }
+    // создадим метод поиска суммы по id продуктов
+    public int findSum(int[] ids) {
+        int sum = 0;
+        for (int id : ids) {
+            for (Product product : repository.findAll()) {
+                if (product.id == id) {
+                    sum += product.cost;
+                }
+            }
+        }
+        return sum;
+    }
+
 }
+
 
 

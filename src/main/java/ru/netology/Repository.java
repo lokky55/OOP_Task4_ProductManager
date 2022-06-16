@@ -2,9 +2,9 @@ package ru.netology;
 
 public class Repository {
 
-    private Product[] products = new Product[0];  // "приватное поле products типа(класса) Product = новый обьект с кол-во элементов массива 0"
+    private Product[] products = new Product[0];  // "приватное поле products типа(класса) Product = новый объект с кол-во элементов массива 0"
 
-    public void save(Product product) {  // метод сохранения (добавления) продукта
+    public void add(Product product) {  // метод сохранения (добавления) продукта
         Product[] tmp = new Product[products.length + 1];
         System.arraycopy(products, 0, tmp, 0, products.length);
         tmp[tmp.length - 1] = product;
@@ -36,4 +36,5 @@ public class Repository {
         }
         products = tmp;
     }
+
 }

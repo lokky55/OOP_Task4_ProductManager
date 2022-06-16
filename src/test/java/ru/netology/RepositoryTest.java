@@ -16,13 +16,13 @@ public class RepositoryTest {
 
     @BeforeEach
     public void setUp() {
-        repo.save(book);
-        repo.save(tel);
+        repo.add(book);
+        repo.add(tel);
     }
 
     @Test
     public void shouldSaveProducts() {
-        repo.save(book1);
+        repo.add(book1);
         Product[] actual = repo.findAll();
         Product[] expected = {book, tel, book1};
         Assertions.assertArrayEquals(expected, actual);

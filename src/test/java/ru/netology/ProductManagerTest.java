@@ -66,4 +66,14 @@ public class ProductManagerTest {
         Product[] expected = {book1, tel};
         Assertions.assertArrayEquals(expected, actual);
     }
+
+    @Test
+    public void shouldFindSum() {
+        int[] ids = new int[]{1, 3};
+//        ids[0] = 1;
+//        ids[1] = 3;
+        int actual = manager.findSum(ids);
+        int expected = 5500;
+        Assertions.assertEquals(expected, actual);
+    }
 }
