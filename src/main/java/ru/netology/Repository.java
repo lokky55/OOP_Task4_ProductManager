@@ -5,6 +5,7 @@ public class Repository {
     private Product[] products = new Product[0];  // "приватное поле products типа(класса) Product = новый объект с кол-во элементов массива 0"
 
     public void add(Product product) {  // метод сохранения (добавления) продукта
+        isAlreadyExist(product.id);
         Product[] tmp = new Product[products.length + 1];
         System.arraycopy(products, 0, tmp, 0, products.length);
         tmp[tmp.length - 1] = product;
@@ -49,5 +50,13 @@ public class Repository {
         products = tmp;
     }
 
+    public boolean isAlreadyExist(int id) {
+        for (Product product : findAll()) {
+            if (product.getId() == id) {
+                throw new AlreadyExistsException("Id, который вы пытаетесь добавить, уже существует");
+            }
+        }
+        return false;
+    }
 
 }

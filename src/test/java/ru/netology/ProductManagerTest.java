@@ -24,14 +24,6 @@ public class ProductManagerTest {
     }
 
     @Test
-    public void shouldAddProduct() {
-        manager.add(book);
-        Product[] actual = repo.findAll();
-        Product[] expected = {book, book1, tel, tel1, book};
-        Assertions.assertArrayEquals(expected, actual);
-    }
-
-    @Test
     public void shouldRemoveById() {
         manager.removeById(1);
         Product[] actual = repo.findAll();

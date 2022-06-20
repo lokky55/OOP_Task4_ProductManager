@@ -13,6 +13,7 @@ public class RepositoryTest {
 
     private Smartphone tel = new Smartphone(4, "N100", 5000, "Nokia");
     private Smartphone tel1 = new Smartphone(5, "Galaxy", 13000, "Samsung");
+    private Smartphone tel2 = new Smartphone(6, "13", 25000, "Apple");
 
     @BeforeEach
     public void setUp() {
@@ -41,6 +42,21 @@ public class RepositoryTest {
     public void shouldThrowNotFoundException() {  // тест генерации NotFoundException при попытке удаления несуществующего элемента
         Assertions.assertThrows(NotFoundException.class, () -> {
             repo.removeById(-1);
+        });
+    }
+
+    @Test
+    public void shouldAddNewElement() {
+        repo.add(tel2);
+        Product[] actual = repo.findAll();
+        Product[] expected = {book, book1, tel, tel1, tel2};
+        Assertions.assertArrayEquals(expected, actual);
+    }
+
+    @Test
+    public void tryToAddAlreadyExist() {
+        Assertions.assertThrows(AlreadyExistsException.class, () -> {
+            repo.isAlreadyExist(1);
         });
     }
 }
