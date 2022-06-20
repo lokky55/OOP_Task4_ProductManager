@@ -25,7 +25,19 @@ public class Repository {
         return products;
     }  // Product[] - тип возвращаемого результата
 
+    public Product findById(int id) {
+        for (Product product : findAll()) {   // findAll() получение всех элементов, которые будем перебирать
+            if (product.getId() == id) {
+                return product;
+            }
+        }
+        return null;
+    }
+
     public void removeById(int id) {      // метод удаления по id
+        if (findById(id) == null) {
+            throw new NotFoundException("Введен несуществующий id: " + id);
+        }
         Product[] tmp = new Product[products.length - 1];
         int index = 0;
         for (Product product : products) {    // используем for each
@@ -36,5 +48,6 @@ public class Repository {
         }
         products = tmp;
     }
+
 
 }

@@ -35,6 +35,13 @@ public class RepositoryTest {
         Product[] expected = {tel};
         Assertions.assertArrayEquals(expected, actual);
     }
+
+    @Test
+    public void findById() {
+        Product actual = repo.findById(2);
+        Product expected = book1;
+        Assertions.assertEquals(expected, actual);
+    }
 }
 
 
