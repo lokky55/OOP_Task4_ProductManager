@@ -17,22 +17,16 @@ public class RepositoryTest {
     @BeforeEach
     public void setUp() {
         repo.add(book);
-        repo.add(tel);
-    }
-
-    @Test
-    public void shouldSaveProducts() {
         repo.add(book1);
-        Product[] actual = repo.findAll();
-        Product[] expected = {book, tel, book1};
-        Assertions.assertArrayEquals(expected, actual);
+        repo.add(tel);
+        repo.add(tel1);
     }
 
     @Test
-    public void removeById() {
+    public void removeById() {  //тест проверяющий успешность удаления существующего элемента
         repo.removeById(1);
         Product[] actual = repo.findAll();
-        Product[] expected = {tel};
+        Product[] expected = {book1, tel, tel1};
         Assertions.assertArrayEquals(expected, actual);
     }
 
@@ -41,6 +35,13 @@ public class RepositoryTest {
         Product actual = repo.findById(2);
         Product expected = book1;
         Assertions.assertEquals(expected, actual);
+    }
+
+    @Test
+    public void shouldThrowNotFoundException() {  // тест генерации NotFoundException при попытке удаления несуществующего элемента
+        Assertions.assertThrows(NotFoundException.class, () -> {
+            repo.removeById(-1);
+        });
     }
 }
 

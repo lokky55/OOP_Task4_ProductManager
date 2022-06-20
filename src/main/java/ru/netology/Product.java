@@ -15,9 +15,6 @@ public class Product {  // объект этого класса описывае
     protected String name;
     protected int cost;
 
-    public Product() {
-    }
-
     public int getId() {
         return id;
     }
