@@ -4,6 +4,9 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import java.lang.reflect.Array;
+import java.util.Arrays;
+
 public class ProductManagerTest {
 
     private Repository repo = new Repository();
@@ -17,15 +20,15 @@ public class ProductManagerTest {
 
     @BeforeEach
     public void setUp() {
-        manager.add(book);
-        manager.add(book1);
-        manager.add(tel);
-        manager.add(tel1);
+        repo.add(book);
+        repo.add(book1);
+        repo.add(tel);
+        repo.add(tel1);
     }
 
     @Test
     public void shouldRemoveById() {
-        manager.removeById(1);
+        repo.removeById(1);
         Product[] actual = repo.findAll();
         Product[] expected = {book1, tel, tel1};
         Assertions.assertArrayEquals(expected, actual);

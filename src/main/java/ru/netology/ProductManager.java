@@ -2,19 +2,19 @@ package ru.netology;
 
 public class ProductManager {
 
-    private Repository repository; // создаем поле типа Repository, которым будем управлять
+    private Repository repository; // Создаем в менеджере экземпляр класса Репозиторий, будем управлять этим полем
 
     public ProductManager(Repository repository) {  // аргументом(экземпляр) будем использовать класс Repository
         this.repository = repository;
     }
 
-    public void add(Product product) {
-        repository.add(product);
-    }
-
-    public void removeById(int id) {
-        repository.removeById(id);
-    }
+//    public void add(Product product) {
+//        repository.add(product);
+//    }
+//
+//    public void removeById(int id) {
+//        repository.removeById(id);
+//    }
 
     // метод определения соответствия товара product запросу search
     public boolean matches(Product product, String search) {

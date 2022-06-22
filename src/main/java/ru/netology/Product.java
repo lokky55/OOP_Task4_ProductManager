@@ -28,4 +28,5 @@ public class Product {  // объект этого класса описывае
         this.name = name;
         this.cost = cost;
     }
+
 }
